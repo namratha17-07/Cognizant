@@ -1,0 +1,18 @@
+CREATE PROCEDURE sp_UpdateSalaryWithTransaction
+    @EmployeeID INT,     
+    @NewSalary DECIMAL(10,2) 
+AS
+BEGIN
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        UPDATE Employees
+        SET Salary = @NewSalary
+        WHERE EmployeeID = @EmployeeID;
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        THROW; 
+    END CATCH
+END;

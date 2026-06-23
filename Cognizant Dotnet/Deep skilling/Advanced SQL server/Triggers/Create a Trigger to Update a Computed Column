@@ -1,0 +1,15 @@
+ALTER TABLE Employees
+ADD AnnualSalary DECIMAL(10,2);
+GO
+CREATE TRIGGER trg_UpdateAnnualSalary
+ON Employees
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE e
+    SET e.AnnualSalary = i.Salary * 12
+    FROM Employees e
+    INNER JOIN inserted i ON e.EmployeeID = i.EmployeeID;
+END;
+GO

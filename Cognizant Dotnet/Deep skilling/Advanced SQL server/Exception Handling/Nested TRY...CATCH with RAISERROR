@@ -1,0 +1,34 @@
+CREATE PROCEDURE TransferEmployee
+    @EmployeeID INT,
+    @DepartmentID INT
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRY
+            IF NOT EXISTS (SELECT 1 FROM Departments WHERE DepartmentID = @DepartmentID)
+            BEGIN
+                RAISERROR('Target department does not exist.', 16, 1);
+            END
+
+            UPDATE Employees
+            SET DepartmentID = @DepartmentID
+            WHERE EmployeeID = @EmployeeID;
+        END TRY
+        BEGIN CATCH
+            INSERT INTO AuditLog (Action, ErrorMessage)
+            VALUES ('TRANSFER EMPLOYEE INNER FAILED', ERROR_MESSAGE());
+            
+            DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+            DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
+            DECLARE @ErrorState INT = ERROR_STATE();
+            
+            RAISERROR(@ErrorMessage, @ErrorSeverity, @ErrorState);
+        END TRY
+    END TRY
+    BEGIN CATCH
+        INSERT INTO AuditLog (Action, ErrorMessage)
+        VALUES ('TRANSFER EMPLOYEE OUTER CATCH', ERROR_MESSAGE());
+        
+        THROW;
+    END CATCH
+END;

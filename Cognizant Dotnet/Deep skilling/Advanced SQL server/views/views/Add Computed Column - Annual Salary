@@ -1,0 +1,9 @@
+CREATE VIEW vw_EmployeeAnnualSalary AS
+SELECT 
+    EmployeeID,
+    FirstName,
+    LastName,
+    Salary,
+    (Salary * 12) AS AnnualSalary -- Multiplies monthly salary by 12 months 
+FROM 
+    Employees;

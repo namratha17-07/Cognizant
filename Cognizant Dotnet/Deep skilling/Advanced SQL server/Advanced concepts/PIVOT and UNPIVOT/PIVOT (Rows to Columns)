@@ -1,0 +1,13 @@
+SELECT ProductID, [1] AS Jan_Qty, [2] AS Feb_Qty, [3] AS Mar_Qty, [4] AS Apr_Qty
+FROM (
+    SELECT 
+        od.ProductID,
+        MONTH(o.OrderDate) AS OrderMonth,
+        od.Quantity
+    FROM OrderDetails od
+    JOIN Orders o ON od.OrderID = o.OrderID
+) AS SourceTable
+PIVOT (
+    SUM(Quantity)
+    FOR OrderMonth IN ([1], [2], [3], [4])
+) AS PivotTable;

@@ -1,0 +1,6 @@
+SELECT 
+    EmployeeID, 
+    FirstName, 
+    LastName, 
+    dbo.fn_CalculateAnnualSalary(Salary) AS VerifiedAnnualSalary
+FROM Employees;
