@@ -1,6 +1,0 @@
-SELECT 
-    EmployeeID, 
-    FirstName, 
-    dbo.fn_CalculateAnnualSalary(Salary) AS TargetEmployeeAnnualSalary
-FROM Employees
-WHERE EmployeeID = 1;
