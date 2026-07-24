@@ -1,0 +1,14 @@
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\bin\Debug\net10.0\exercise_05.exe
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\bin\Debug\net10.0\exercise_05.deps.json
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\bin\Debug\net10.0\exercise_05.runtimeconfig.json
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\bin\Debug\net10.0\exercise_05.dll
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\bin\Debug\net10.0\exercise_05.pdb
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\obj\Debug\net10.0\exercise_05.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\obj\Debug\net10.0\exercise_05.AssemblyInfoInputs.cache
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\obj\Debug\net10.0\exercise_05.AssemblyInfo.cs
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\obj\Debug\net10.0\exercise_05.csproj.CoreCompileInputs.cache
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\obj\Debug\net10.0\exercise_05.dll
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\obj\Debug\net10.0\refint\exercise_05.dll
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\obj\Debug\net10.0\exercise_05.pdb
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\obj\Debug\net10.0\exercise_05.genruntimeconfig.cache
+C:\Users\Bindu\Downloads\Cognizant-main\Cognizant-main\Cognizant-main\Deepskilling\Engineering concepts\Algorithms_Data_Structures\Exercise_05\obj\Debug\net10.0\ref\exercise_05.dll
