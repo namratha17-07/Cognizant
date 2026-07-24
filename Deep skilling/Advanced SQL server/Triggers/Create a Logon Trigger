@@ -1,0 +1,12 @@
+CREATE TRIGGER trg_LogonMaintenanceRestriction
+ON ALL SERVER
+FOR LOGON
+AS
+BEGIN
+    IF CAST(GETDATE() AS TIME) BETWEEN '02:00:00' AND '03:00:00'
+    BEGIN
+        ROLLBACK;
+        RAISERROR('Access Denied: The database is currently undergoing scheduled maintenance between 2 AM and 3 AM.', 16, 1);
+    END
+END;
+GO

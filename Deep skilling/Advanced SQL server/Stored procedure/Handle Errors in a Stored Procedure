@@ -1,0 +1,22 @@
+CREATE PROCEDURE sp_UpdateSalaryWithErrorHandling
+    @EmployeeID INT,    
+    @NewSalary DECIMAL(10,2) 
+AS
+BEGIN
+    BEGIN TRY
+        IF @NewSalary < 0
+        BEGIN
+            RAISERROR('Salary cannot be a negative value.', 16, 1);
+            RETURN;
+        END
+
+        UPDATE Employees
+        SET Salary = @NewSalary
+        WHERE EmployeeID = @EmployeeID;
+    END TRY
+    BEGIN CATCH
+        SELECT 
+            ERROR_NUMBER() AS ErrorNumber,
+            ERROR_MESSAGE() AS CustomErrorMessage; 
+    END CATCH
+END;

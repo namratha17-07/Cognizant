@@ -1,0 +1,28 @@
+CREATE PROCEDURE BatchInsertEmployees
+    @Emp1ID INT, @Emp1FN VARCHAR(50), @Emp1LN VARCHAR(50), @Emp1Email VARCHAR(100), @Emp1Salary DECIMAL(10,2), @Emp1DeptID INT,
+    @Emp2ID INT, @Emp2FN VARCHAR(50), @Emp2LN VARCHAR(50), @Emp2Email VARCHAR(100), @Emp2Salary DECIMAL(10,2), @Emp2DeptID INT
+AS
+BEGIN
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        INSERT INTO Employees (EmployeeID, FirstName, LastName, Email, Salary, DepartmentID)
+        VALUES (@Emp1ID, @Emp1FN, @Emp1LN, @Emp1Email, @Emp1Salary, @Emp1DeptID);
+
+        INSERT INTO Employees (EmployeeID, FirstName, LastName, Email, Salary, DepartmentID)
+        VALUES (@Emp2ID, @Emp2FN, @Emp2LN, @Emp2Email, @Emp2Salary, @Emp2DeptID);
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+        BEGIN
+            ROLLBACK TRANSACTION;
+        END
+
+        INSERT INTO AuditLog (Action, ErrorMessage)
+        VALUES ('BATCH INSERT FAILED - TRANSACTION ROLLED BACK', ERROR_MESSAGE());
+        
+        THROW;
+    END CATCH
+END;
+

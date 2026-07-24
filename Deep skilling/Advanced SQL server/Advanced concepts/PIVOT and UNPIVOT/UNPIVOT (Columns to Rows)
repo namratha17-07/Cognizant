@@ -1,0 +1,13 @@
+-- Assume the pivoted data was saved into a temporary table or view called PivotedSales
+WITH PivotedSales AS (
+    SELECT ProductID, [1] AS Jan_Qty, [2] AS Feb_Qty, [3] AS Mar_Qty, [4] AS Apr_Qty
+    FROM (
+        SELECT od.ProductID, MONTH(o.OrderDate) AS OrderMonth, od.Quantity
+        FROM OrderDetails od JOIN Orders o ON od.OrderID = o.OrderID
+    ) AS Source PIVOT (SUM(Quantity) FOR OrderMonth IN ([1], [2], [3], [4])) AS Pst
+)
+SELECT ProductID, MonthNumber, Quantity
+FROM PivotedSales
+UNPIVOT (
+    Quantity FOR MonthNumber IN (Jan_Qty, Feb_Qty, Mar_Qty, Apr_Qty)
+) AS UnpivotTable;

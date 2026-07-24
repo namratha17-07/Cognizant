@@ -1,0 +1,17 @@
+DECLARE @EmpID INT, @FName VARCHAR(50), @LName VARCHAR(50), @DeptID INT, @Sal DECIMAL(10,2), @JDate DATE;
+
+DECLARE emp_cursor CURSOR FOR 
+SELECT EmployeeID, FirstName, LastName, DepartmentID, Salary, JoinDate FROM Employees;
+
+OPEN emp_cursor;
+
+FETCH NEXT FROM emp_cursor INTO @EmpID, @FName, @LName, @DeptID, @Sal, @JDate;
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    PRINT CAST(@EmpID AS VARCHAR) + ' - ' + @FName + ' ' + @LName + ' - Dept: ' + CAST(@DeptID AS VARCHAR) + ' - Salary: ' + CAST(@Sal AS VARCHAR) + ' - Joined: ' + CAST(@JDate AS VARCHAR);
+    FETCH NEXT FROM emp_cursor INTO @EmpID, @FName, @LName, @DeptID, @Sal, @JDate;
+END;
+
+CLOSE emp_cursor;
+DEALLOCATE emp_cursor;

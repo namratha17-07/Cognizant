@@ -1,0 +1,8 @@
+CREATE PROCEDURE sp_GetDepartmentEmployeeCount
+    @DepartmentID INT 
+AS
+BEGIN
+    SELECT COUNT(EmployeeID) AS TotalEmployees 
+    FROM Employees 
+    WHERE DepartmentID = @DepartmentID;
+END;

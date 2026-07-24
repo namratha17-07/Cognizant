@@ -1,0 +1,3 @@
+DROP FUNCTION fn_CalculateBonus;
+SELECT * FROM sys.objects 
+WHERE object_id = OBJECT_ID(N'dbo.fn_CalculateBonus') AND type IN (N'FN', N'IF', N'TF');

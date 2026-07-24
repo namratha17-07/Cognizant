@@ -1,0 +1,12 @@
+ALTER TRIGGER trg_InsteadOfDeleteEmployee
+ON Employees
+INSTEAD OF DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    RAISERROR('Modified Message: Employee deletion is blocked by database policy.', 16, 1);
+END;
+GO
+-- Permanently drops the trigger from the database schema
+DROP TRIGGER trg_InsteadOfDeleteEmployee;
+GO
